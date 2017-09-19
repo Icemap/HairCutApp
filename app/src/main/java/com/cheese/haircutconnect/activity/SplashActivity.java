@@ -1,6 +1,7 @@
 package com.cheese.haircutconnect.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 
 import com.cheese.haircutconnect.R;
@@ -15,9 +16,9 @@ public class SplashActivity extends BaseImmersiveActivity
     }
 
     @Override
-    protected void onInitLogic()
+    protected void onInitLogic(Bundle savedInstanceState)
     {
-        super.onInitLogic();
+        super.onInitLogic(savedInstanceState);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

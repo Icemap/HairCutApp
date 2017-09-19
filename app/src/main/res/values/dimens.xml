@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Override Dimen -->
+    <!--<dimen name="design_fab_size_normal" tools:override="true">100dp</dimen>-->
+    <!--<dimen name="design_fab_image_size" tools:override="true">50dp</dimen>-->
+    <dimen name="floating_label_text_size" tools:override="true">15dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="login_margin">35dp</dimen>
+    <dimen name="login_text">15sp</dimen>
+
+    <!-- Map Btn -->
+    <dimen name="main_map_big_btn">60dp</dimen>
+    <dimen name="main_map_small_btn">40dp</dimen>
+    <dimen name="main_map_big_margin">15dp</dimen>
+    <dimen name="main_map_small_margin">7dp</dimen>
+</resources>
