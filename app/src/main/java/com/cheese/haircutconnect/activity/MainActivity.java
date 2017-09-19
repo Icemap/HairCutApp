@@ -1,7 +1,13 @@
 package com.cheese.haircutconnect.activity;
 
-import android.graphics.Point;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
@@ -11,14 +17,16 @@ import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.LatLng;
 import com.cheese.haircutconnect.R;
-import com.cheese.haircutconnect.base.BaseActivity;
+import com.cheese.haircutconnect.base.BaseAppCompatActivity;
 import com.cheese.haircutconnect.base.BaseApplication;
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity
+public class MainActivity extends BaseAppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener
 {
-    AMap aMap;
+    private AMap aMap;
 
     @BindView(R.id.main_map_view)
     MapView mMapView;
@@ -39,9 +47,20 @@ public class MainActivity extends BaseActivity
             aMap = mMapView.getMap();
 
         locSelf();
+
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.dark_gray));
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
-
-
 
     public void locSelf()
     {
@@ -53,6 +72,7 @@ public class MainActivity extends BaseActivity
                 if(amapLocation.getErrorCode() != 0)
                 {
                     Toast.makeText(MainActivity.this, "定位失败", Toast.LENGTH_LONG).show();
+                    Log.e("[LOC-ERROR]", new Gson().toJson(amapLocation));
                     return;
                 }
 
@@ -66,6 +86,10 @@ public class MainActivity extends BaseActivity
     }
 
 
+    /**=======================================
+     * ------------Default Method-------------
+     * =======================================
+     */
     @Override
     protected void onDestroy()
     {
@@ -92,5 +116,57 @@ public class MainActivity extends BaseActivity
     {
         super.onSaveInstanceState(outState);
         mMapView.onSaveInstanceState(outState);
+    }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START))
+        {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera)
+        {
+            // Handle the camera action
+        }
+        else if (id == R.id.nav_gallery)
+        {
+
+        }
+        else if (id == R.id.nav_slideshow)
+        {
+
+        }
+        else if (id == R.id.nav_manage)
+        {
+
+        }
+        else if (id == R.id.nav_share)
+        {
+
+        }
+        else if (id == R.id.nav_send)
+        {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

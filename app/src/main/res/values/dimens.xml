@@ -17,4 +17,11 @@
     <dimen name="main_map_small_btn">40dp</dimen>
     <dimen name="main_map_big_margin">15dp</dimen>
     <dimen name="main_map_small_margin">7dp</dimen>
+
+    <!-- MainActivity -->
+    <dimen name="main_title_height">60dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
 </resources>

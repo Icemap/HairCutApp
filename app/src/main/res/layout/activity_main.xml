@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    tools:openDrawer="start"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context="com.cheese.haircutconnect.activity.MainActivity">
 
-
-    <com.amap.api.maps2d.MapView
-        android:id="@+id/main_map_view"
+    <include
+        layout="@layout/main_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:transitionName="intoMainActivity">
-    </com.amap.api.maps2d.MapView>
+        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="false"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/menu_main_drawer"/>
+
+</android.support.v4.widget.DrawerLayout>

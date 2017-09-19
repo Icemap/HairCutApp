@@ -2,18 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.cheese.haircutconnect">
 
-    <!--允许程序打开网络套接字-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--允许程序设置内置sd卡的写权限-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--允许程序获取网络状态-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--允许程序访问WiFi网络信息-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许程序读写手机状态和身份-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:name=".base.BaseApplication"
@@ -24,9 +24,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- Company : 9adaa4aa6a55f787073ed7bc07b82082 -->
+        <!-- Home : a7a4e1beed3111b478f2c6a72a50090e -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="9adaa4aa6a55f787073ed7bc07b82082"/>
+            android:value="a7a4e1beed3111b478f2c6a72a50090e"/>
 
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
@@ -37,7 +39,9 @@
         </activity>
         <activity android:name=".activity.LoginActivity">
         </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+                  android:label="@string/title_activity_test"
+                  android:theme="@style/AppTheme">
         </activity>
     </application>
 
