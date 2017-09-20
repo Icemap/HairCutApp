@@ -1,5 +1,6 @@
 package com.cheese.haircutconnect.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
@@ -17,13 +19,14 @@ import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.LatLng;
 import com.cheese.haircutconnect.R;
-import com.cheese.haircutconnect.base.BaseAppCompatActivity;
 import com.cheese.haircutconnect.base.BaseApplication;
+import com.cheese.haircutconnect.base.BaseImmersiveAppCompatActivity;
+import com.cheese.haircutconnect.tools.ImmersiveTools;
 import com.google.gson.Gson;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseAppCompatActivity
+public class MainActivity extends BaseImmersiveAppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
     private AMap aMap;
@@ -48,9 +51,12 @@ public class MainActivity extends BaseAppCompatActivity
 
         locSelf();
 
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN| View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        ImmersiveTools.setStatusBarColor(getWindow(), getResources().getColor(R.color.colorPrimary));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.dark_gray));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -61,6 +67,8 @@ public class MainActivity extends BaseAppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
 
     public void locSelf()
     {
@@ -78,7 +86,7 @@ public class MainActivity extends BaseAppCompatActivity
 
                 LatLng selfLoc = new LatLng(amapLocation.getLatitude(),amapLocation.getLongitude());
                 aMap.moveCamera(CameraUpdateFactory.changeLatLng(selfLoc));
-                aMap.moveCamera(CameraUpdateFactory.zoomTo(12));
+                aMap.moveCamera(CameraUpdateFactory.zoomTo(17));
             }
         };
         BaseApplication.getInstances().getLocClient().setLocationListener(mAMapLocationListener);

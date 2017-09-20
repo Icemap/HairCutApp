@@ -35,7 +35,7 @@
 
             <ImageView
                 android:id="@+id/iv_login_lock"
-                android:contentDescription="@string/app_name"
+                android:contentDescription="@string/app_name_changed"
                 android:layout_below="@+id/tv_login_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

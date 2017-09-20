@@ -1,20 +1,13 @@
 package com.cheese.haircutconnect.base;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 
 /**
- * Created by WangQiZhi on 2016/12/24.
+ * Created by Administrator on 2017/9/20 0020.
  */
 
-public abstract class BaseImmersiveActivity extends BaseActivity
+public abstract class BaseImmersiveAppCompatActivity extends BaseAppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -9,10 +9,15 @@ import android.widget.TextView;
 
 import com.cheese.haircutconnect.R;
 import com.cheese.haircutconnect.base.BaseActivity;
+import com.cheese.haircutconnect.param.UrlParam;
+import com.cheese.haircutconnect.tools.MD5Utils;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import okhttp3.Call;
 
 public class LoginActivity extends BaseActivity
 {
@@ -60,5 +65,27 @@ public class LoginActivity extends BaseActivity
     public void loginForget()
     {
 
+    }
+
+    private void loginLogic()
+    {
+        OkHttpUtils
+                .get()
+                .url(UrlParam.URL_USER_LOGIN)
+                .addParams("account", etAccount.getText().toString())
+                .addParams("password", MD5Utils.getMD5(etPassword.getText().toString()))
+                .build()
+                .execute(new StringCallback()
+                {
+                    @Override
+                    public void onError(Call call, Exception e, int id)
+                    {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id)
+                    {
+                    }
+                });
     }
 }

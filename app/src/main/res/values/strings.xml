@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HairCutConnect</string>
+    <string name="app_name_changed">易发</string>
 
     <string name="title_activity_login">登录</string>
 
@@ -13,10 +13,9 @@
 
     <string name="content_hint">Content</string>
     <string name="drawer_hint">Drawer</string>
-    <string name="title_activity_test">TestActivity</string>
+    <string name="main_title_bar">寻找附近的理发店</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
 </resources>

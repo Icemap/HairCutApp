@@ -7,6 +7,8 @@
 >- ButterKnife
 >- MaterialedEditText
 >- DrawerArrowDrawable
+>- OKHttp3
+>- OKHttpUtils
 
 依赖闭源:
 >- Amap
